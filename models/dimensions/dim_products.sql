@@ -39,4 +39,4 @@ with product_data as (
         dc.latitude,
         dc.longitude
 )
-select * from product_data;
+select * from product_data

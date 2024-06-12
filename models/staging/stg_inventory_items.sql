@@ -15,4 +15,4 @@ with raw_data as (
     from
         `bigquery-public-data.thelook_ecommerce.inventory_items`
 )
-select * from raw_data;
+select * from raw_data

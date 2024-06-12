@@ -24,4 +24,4 @@ with inventory_data as (
     on
         p.distribution_center_id = dc.id
 )
-select * from inventory_data;
+select * from inventory_data

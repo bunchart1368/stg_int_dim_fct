@@ -18,4 +18,4 @@ with raw_data as (
     from
         `bigquery-public-data.thelook_ecommerce.users`
 )
-select * from raw_data;
+select * from raw_data

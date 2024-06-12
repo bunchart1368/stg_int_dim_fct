@@ -12,4 +12,4 @@ with raw_data as (
     from
         `bigquery-public-data.thelook_ecommerce.products`
 )
-select * from raw_data;
+select * from raw_data

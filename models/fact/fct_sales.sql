@@ -38,8 +38,8 @@ with sales as (
     on
         os.user_id = u.user_id
     join
-        {{ ref('dim_distribution_centers') }} dc
+        {{ ref('stg_distribution_centers') }} dc
     on
         p.distribution_center_id = dc.distribution_center_id
 )
-select * from sales;
+select * from sales

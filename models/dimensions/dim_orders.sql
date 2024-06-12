@@ -48,4 +48,4 @@ with order_data as (
         u.country,
         u.traffic_source
 )
-select * from order_data;
+select * from order_data
