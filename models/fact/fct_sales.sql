@@ -40,6 +40,6 @@ with sales as (
     join
         {{ ref('stg_distribution_centers') }} dc
     on
-        p.distribution_center_id = dc.distribution_center_id
+        p.distribution_center_id = dc.id
 )
 select * from sales
