@@ -27,4 +27,4 @@ with product_inventory as (
     on
         p.distribution_center_id = dc.id
 )
-select * from product_inventory;
+select * from product_inventory

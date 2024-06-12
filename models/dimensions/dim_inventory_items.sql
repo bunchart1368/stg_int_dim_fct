@@ -6,10 +6,10 @@ with inventory_data as (
         i.inventory_created_at,
         i.inventory_sold_at,
         i.inventory_cost,
-        p.product_name,
-        p.product_category,
-        p.product_brand,
-        p.product_retail_price,
+        i.product_name,
+        i.product_category,
+        i.product_brand,
+        i.product_retail_price,
         dc.name as distribution_center_name,
         dc.latitude as distribution_center_latitude,
         dc.longitude as distribution_center_longitude
@@ -24,4 +24,4 @@ with inventory_data as (
     on
         p.distribution_center_id = dc.id
 )
-select * from inventory_data;
+select * from inventory_data

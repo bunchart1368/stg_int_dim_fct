@@ -24,4 +24,4 @@ with user_orders as (
     on
         u.id = o.user_id
 )
-select * from user_orders;
+select * from user_orders

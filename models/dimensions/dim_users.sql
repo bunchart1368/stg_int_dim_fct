@@ -32,4 +32,4 @@ with user_data as (
         u.country,
         u.traffic_source
 )
-select * from user_data;
+select * from user_data

@@ -8,7 +8,7 @@ with product_data as (
         pi.product_retail_price,
         pi.product_cost,
         pi.product_department,
-        pi.sku,
+        pi.product_sku,
         pi.distribution_center_id,
         sum(oi.sale_price) as total_sales,
         count(oi.order_item_id) as total_quantity_sold,
@@ -33,10 +33,10 @@ with product_data as (
         pi.product_retail_price,
         pi.product_cost,
         pi.product_department,
-        pi.sku,
+        pi.product_sku,
         pi.distribution_center_id,
         dc.name,
         dc.latitude,
         dc.longitude
 )
-select * from product_data;
+select * from product_data

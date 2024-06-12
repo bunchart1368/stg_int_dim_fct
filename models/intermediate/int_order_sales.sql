@@ -42,4 +42,4 @@ with order_sales as (
     on
         p.distribution_center_id = dc.id
 )
-select * from order_sales;
+select * from order_sales
