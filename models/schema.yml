@@ -139,7 +139,53 @@ models:
         description: "The name of the product"
       - name: user_id
         description: "The ID of the user who placed the order"
-
+        
+  - name: dim_event_user
+    description: "Dimension model for events joined with user orders"
+    columns:
+      - name: event_id
+        description: "The primary key for the events table"
+        tests:
+          - unique
+          - not_null
+      - name: user_id
+        description: "The ID of the user associated with the event"
+      - name: sequence_number
+        description: "Sequence number of the event"
+      - name: session_id
+        description: "Session ID during which the event occurred"
+      - name: event_created_at
+        description: "Timestamp when the event was created"
+      - name: ip_address
+        description: "IP address from which the event was generated"
+      - name: event_city
+        description: "City from which the event was generated"
+      - name: event_state
+        description: "State from which the event was generated"
+      - name: event_postal_code
+        description: "Postal code from which the event was generated"
+      - name: browser
+        description: "Browser used for the event"
+      - name: event_traffic_source
+        description: "Traffic source for the event"
+      - name: uri
+        description: "URI of the event"
+      - name: event_type
+        description: "Type of the event"
+      - name: order_id
+        description: "The ID of the order associated with the user"
+      - name: order_status
+        description: "The status of the order"
+      - name: order_created_at
+        description: "Timestamp when the order was created"
+      - name: order_returned_at
+        description: "Timestamp when the order was returned"
+      - name: order_shipped_at
+        description: "Timestamp when the order was shipped"
+      - name: order_delivered_at
+        description: "Timestamp when the order was delivered"
+      - name: num_of_item
+        description: "Number of items in the order"
   - name: dim_users
     description: "Dimension model for users"
     columns:
