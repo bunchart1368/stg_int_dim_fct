@@ -127,19 +127,87 @@ models:
         description: "The name of the distribution center"
 
   - name: int_order_sales
-    description: "Intermediate model for order sales"
+    description: "Intermediate model for order sales, joining orders and users"
     columns:
-      - name: order_item_id
-        description: "The ID of the order item"
       - name: order_id
         description: "The ID of the order"
-      - name: sale_price
-        description: "The sale price of the order item"
-      - name: product_name
-        description: "The name of the product"
       - name: user_id
         description: "The ID of the user who placed the order"
-
+      - name: order_status
+        description: "The status of the order"
+      - name: order_created_at
+        description: "Timestamp when the order was created"
+      - name: returned_at
+        description: "Timestamp when the order was returned"
+      - name: shipped_at
+        description: "Timestamp when the order was shipped"
+      - name: delivered_at
+        description: "Timestamp when the order was delivered"
+      - name: first_name
+        description: "The first name of the user"
+      - name: last_name
+        description: "The last name of the user"
+      - name: email
+        description: "The email of the user"
+      - name: age
+        description: "The age of the user"
+      - name: gender
+        description: "The gender of the user"
+      - name: state
+        description: "The state where the user resides"
+      - name: city
+        description: "The city where the user resides"
+      - name: country
+        description: "The country where the user resides"
+      - name: traffic_source
+        description: "The traffic source from where the user arrived"
+        
+  - name: dim_event_user
+    description: "Dimension model for events joined with user orders"
+    columns:
+      - name: event_id
+        description: "The primary key for the events table"
+        tests:
+          - unique
+          - not_null
+      - name: user_id
+        description: "The ID of the user associated with the event"
+      - name: sequence_number
+        description: "Sequence number of the event"
+      - name: session_id
+        description: "Session ID during which the event occurred"
+      - name: event_created_at
+        description: "Timestamp when the event was created"
+      - name: ip_address
+        description: "IP address from which the event was generated"
+      - name: event_city
+        description: "City from which the event was generated"
+      - name: event_state
+        description: "State from which the event was generated"
+      - name: event_postal_code
+        description: "Postal code from which the event was generated"
+      - name: browser
+        description: "Browser used for the event"
+      - name: event_traffic_source
+        description: "Traffic source for the event"
+      - name: uri
+        description: "URI of the event"
+      - name: event_type
+        description: "Type of the event"
+      - name: order_id
+        description: "The ID of the order associated with the user"
+      - name: order_status
+        description: "The status of the order"
+      - name: order_created_at
+        description: "Timestamp when the order was created"
+      - name: order_returned_at
+        description: "Timestamp when the order was returned"
+      - name: order_shipped_at
+        description: "Timestamp when the order was shipped"
+      - name: order_delivered_at
+        description: "Timestamp when the order was delivered"
+      - name: num_of_item
+        description: "Number of items in the order"
   - name: dim_users
     description: "Dimension model for users"
     columns:
@@ -167,9 +235,31 @@ models:
         description: "The name of the product"
       - name: product_category
         description: "The category of the product"
+      - name: product_brand
+        description: "The brand of the product"
+      - name: product_retail_price
+        description: "The retail price of the product"
+      - name: product_cost
+        description: "The cost of the product"
+      - name: product_department
+        description: "The department of the product"
+      - name: product_sku
+        description: "The SKU of the product"
+      - name: distribution_center_id
+        description: "The ID of the distribution center where the product is stored"
       - name: distribution_center_name
-        description: "The name of the distribution center"
-
+        description: "The name of the distribution center where the product is stored"
+      - name: distribution_center_latitude
+        description: "The latitude of the distribution center"
+      - name: distribution_center_longitude
+        description: "The longitude of the distribution center"
+      - name: total_items_sold
+        description: "The total number of items sold for this product"
+      - name: total_returns
+        description: "The total number of returns for this product"
+      - name: last_order_date
+        description: "The date of the last order for this product"
+        
   - name: dim_orders
     description: "Dimension model for orders"
     columns:
@@ -184,6 +274,33 @@ models:
         description: "The status of the order"
       - name: order_created_at
         description: "Timestamp when the order was created"
+      - name: order_returned_at
+        description: "Timestamp when the order was returned"
+      - name: order_shipped_at
+        description: "Timestamp when the order was shipped"
+      - name: order_delivered_at
+        description: "Timestamp when the order was delivered"
+      - name: num_of_item
+        description: "The number of items in the order"
+      - name: first_name
+        description: "The first name of the user"
+      - name: last_name
+        description: "The last name of the user"
+      - name: email
+        description: "The email of the user"
+      - name: age
+        description: "The age of the user"
+      - name: gender
+        description: "The gender of the user"
+      - name: state
+        description: "The state where the user resides"
+      - name: city
+        description: "The city where the user resides"
+      - name: country
+        description: "The country where the user resides"
+      - name: traffic_source
+        description: "The traffic source from where the user arrived"
+
 
   - name: dim_inventory_items
     description: "Dimension model for inventory items"
@@ -214,5 +331,18 @@ models:
         description: "The ID of the user who placed the order"
       - name: product_id
         description: "The ID of the product"
+      - name: inventory_item_id
+        description: "The ID of the inventory item"
+      - name: order_item_status
+        description: "The status of the order item"
+      - name: order_item_created_at
+        description: "Timestamp when the order item was created"
+      - name: order_item_shipped_at
+        description: "Timestamp when the order item was shipped"
+      - name: order_item_delivered_at
+        description: "Timestamp when the order item was delivered"
+      - name: order_item_returned_at
+        description: "Timestamp when the order item was returned"
       - name: sale_price
         description: "The sale price of the order item"
+
