@@ -19,7 +19,7 @@ with user_orders as (
         o.num_of_item
     from
         {{ ref('stg_users') }} u
-    join
+    left join
         {{ ref('stg_orders') }} o
     on
         u.id = o.user_id

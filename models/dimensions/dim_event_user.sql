@@ -13,6 +13,8 @@ with event_user as (
         e.traffic_source as event_traffic_source,
         e.uri,
         e.event_type,
+        u.first_name,
+        u.last_name,
         u.order_id,
         u.order_status,
         u.order_created_at,
