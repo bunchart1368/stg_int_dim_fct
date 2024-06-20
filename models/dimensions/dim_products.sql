@@ -18,7 +18,7 @@ with product_data as (
     from
         {{ ref('int_product_inventory') }} p
     join
-        {{ ref('stg_order_items') }} oi
+        {{ ref('base_order_items') }} oi
     on
         p.product_id = oi.product_id
     left join

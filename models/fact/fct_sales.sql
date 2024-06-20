@@ -11,4 +11,4 @@ select
     returned_at as order_item_returned_at,
     sale_price
 from
-    {{ ref('stg_order_items') }}
+    {{ ref('base_order_items') }}

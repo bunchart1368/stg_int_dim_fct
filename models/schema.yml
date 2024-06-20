@@ -16,8 +16,8 @@ models:
       - name: longitude
         description: "Longitude of the distribution center"
 
-  - name: stg_events
-    description: "Staging model for events"
+  - name: base_events
+    description: "base model for events"
     columns:
       - name: id
         description: "The primary key for the events table"
@@ -44,7 +44,7 @@ models:
       - name: sold_at
         description: "Timestamp when the inventory item was sold"
 
-  - name: stg_order_items
+  - name: base_order_items
     description: "Staging model for order items"
     columns:
       - name: id

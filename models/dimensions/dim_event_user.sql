@@ -23,7 +23,7 @@ with event_user as (
         u.order_delivered_at as order_delivered_at,
         u.num_of_item
     from
-        {{ ref('stg_events') }} e
+        {{ ref('base_events') }} e
     left join
         {{ ref('int_user_orders') }} u
     on
