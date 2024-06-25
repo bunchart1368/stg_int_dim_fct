@@ -162,7 +162,7 @@ models:
       - name: traffic_source
         description: "The traffic source from where the user arrived"
         
-  - name: dim_event_user
+  - name: dim_event
     description: "Dimension model for events joined with user orders"
     columns:
       - name: event_id
@@ -194,20 +194,7 @@ models:
         description: "URI of the event"
       - name: event_type
         description: "Type of the event"
-      - name: order_id
-        description: "The ID of the order associated with the user"
-      - name: order_status
-        description: "The status of the order"
-      - name: order_created_at
-        description: "Timestamp when the order was created"
-      - name: order_returned_at
-        description: "Timestamp when the order was returned"
-      - name: order_shipped_at
-        description: "Timestamp when the order was shipped"
-      - name: order_delivered_at
-        description: "Timestamp when the order was delivered"
-      - name: num_of_item
-        description: "Number of items in the order"
+
   - name: dim_users
     description: "Dimension model for users"
     columns:
@@ -345,4 +332,53 @@ models:
         description: "Timestamp when the order item was returned"
       - name: sale_price
         description: "The sale price of the order item"
+
+  - name: clv
+    description: "Customer Lifetime Value (CLV) by user"
+    columns:
+      - name: user_id
+        description: "The unique identifier for a user"
+      - name: first_name
+        description: "First name of the user"
+      - name: last_name
+        description: "Last name of the user"
+      - name: customer_lifetime_value
+        description: "Total amount spent by the user"
+
+  - name: sales_by_product
+    description: "Total sales by product"
+    columns:
+      - name: product_id
+        description: "The unique identifier for a product"
+      - name: product_name
+        description: "The name of the product"
+      - name: total_sales
+        description: "Total sales for each product"
+
+  - name: clv_by_product
+    description: "CLV by product for each user"
+    columns:
+      - name: user_id
+        description: "The unique identifier for a user"
+      - name: product_id
+        description: "The unique identifier for a product"
+      - name: product_name
+        description: "The name of the product"
+      - name: clv_product
+        description: "CLV by product for each user"
+
+  - name: average_order_value
+    description: "Average order value across all orders"
+    columns:
+      - name: average_order_value
+        description: "Average order value across all orders"
+
+  - name: average_order_value_by_category
+    description: "Average order value by product category"
+    columns:
+      - name: product_category
+        description: "The category of the product"
+      - name: average_order_value_by_category
+        description: "Average order value for each product category"
+
 
