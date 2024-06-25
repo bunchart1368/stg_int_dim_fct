@@ -13,20 +13,7 @@ with event_user as (
         e.traffic_source as event_traffic_source,
         e.uri,
         e.event_type,
-        u.first_name,
-        u.last_name,
-        u.order_id,
-        u.order_status,
-        u.order_created_at,
-        u.order_returned_at as order_returned_at,
-        u.order_shipped_at as order_shipped_at,
-        u.order_delivered_at as order_delivered_at,
-        u.num_of_item
     from
         {{ ref('base_events') }} e
-    left join
-        {{ ref('int_user_orders') }} u
-    on
-        e.user_id = u.user_id
 )
 select * from event_user
