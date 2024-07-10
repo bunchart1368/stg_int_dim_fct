@@ -14,6 +14,6 @@ with event_user as (
         e.uri,
         e.event_type,
     from
-        {{ ref('base_events') }} e
+        {{ ref('stg_events') }} e
 )
 select * from event_user
